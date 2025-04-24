@@ -14,19 +14,33 @@ public class App {
         while(option != 7) {
             System.out.println("1: Sign Up");
             System.out.println("2: Login");
-            option = scanner.hasNextInt() ? scanner.nextInt();
-            // switch (option) {
-            //     case 1: 
-            //         System.out.println("Enter Name: ");
-            //         String name = scanner.nextLine();
-            //         System.out.println("Enter Email: ");
-            //         String email = scanner.nextLine();
-            //         System.out.println("Enter Password: ");
-            //         String password = scanner.nextLine();
-            //         AuthService.signUp(name, email, password);
-            //         scanner.close();
-            //         break;
-            // }
-        }
+            option = scanner.nextInt();
+            
+            switch (option) {
+                case 1: 
+                    System.out.print("Enter Name: ");
+                    String name = scanner.next();
+                    System.out.print("Enter Email: ");
+                    String email = scanner.next();
+                    System.out.print("Enter Password: ");
+                    String password = scanner.next();
+                    AuthService.signUp(name, email, password);
+                    break;
+                case 2:                     
+                    System.out.print("Enter Email: ");
+                    String email2 = scanner.next();
+                    System.out.print("Enter Password: ");
+                    String password2 = scanner.next();
+                    try {
+                        AuthService.logIn(email2, password2);
+                        System.out.println("login successful!!!");
+                    } catch (Exception e) {
+                        System.out.println("Invalid Credentials");
+                    }
+                    break;
+                }
+                }
+            scanner.close();
+            }
     }
-}
+
