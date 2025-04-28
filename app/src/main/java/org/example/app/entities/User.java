@@ -3,11 +3,12 @@ package org.example.app.entities;
 import java.util.UUID;
 
 public class User {
-    
     private UUID id;
     private String name;
     private String email;
     private String password;
+
+    private Ticket ticket;
 
     public User(String name, String email, String password) {
         this.id = UUID.randomUUID();
@@ -30,5 +31,13 @@ public class User {
 
     public String getPassword() {
         return this.password;
+    }
+
+    public Ticket getTicket() {
+        return this.ticket;
+    }
+
+    public void setTicket(Ticket ticket) {
+        this.ticket = ticket;
     }
 }

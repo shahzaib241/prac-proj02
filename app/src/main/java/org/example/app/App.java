@@ -1,8 +1,12 @@
 package org.example.app;
 
+import java.util.Optional;
 import java.util.Scanner;
 
+import org.example.app.entities.Ticket;
 import org.example.app.services.AuthService;
+import org.example.app.services.UserService;
+import org.example.app.utility.Station;
 
 public class App {
     public static void main(String[] args) {
@@ -12,11 +16,11 @@ public class App {
         
         Integer option = 0;
         while(option != 7) {
-            System.out.println("1. Sign up");
-            System.out.println("2. Login");
-            System.out.println("3. Fetch Bookings");
-            System.out.println("4. Search Trains");
-            System.out.println("5. Book a Seat");
+            System.out.println("1. Sign up"); //done
+            System.out.println("2. Login");  //done
+            System.out.println("3. Fetch Bookings"); //done
+            System.out.println("4. Book a Seat");
+            System.out.println("5. Search Trains");
             System.out.println("6. Cancel my Booking");
             System.out.println("7. Exit the App");
             option = scanner.nextInt();
@@ -42,6 +46,24 @@ public class App {
                     } catch (Exception e) {
                         System.out.println("Invalid Credentials");
                     }
+                    break;
+                case 3:
+                    System.out.println("Bookings");
+                    Optional<Ticket> userTicket = UserService.getBookings();
+                    if (userTicket.isPresent()) {
+                        System.out.println(userTicket.get());
+                    } else {
+                        System.out.println("No tickets booked");
+                    }
+                    break;
+                case 4:
+                    System.out.print("Select Arrival: ");
+                    String arrival = scanner.next();
+                    System.out.print("Select Destination: ");
+                    String destination = scanner.next();
+                    System.out.print("Select Date: ");
+                    String date = scanner.next();
+                    
                     break;
                 }
                 }
