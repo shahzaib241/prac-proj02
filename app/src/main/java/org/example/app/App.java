@@ -3,26 +3,28 @@ package org.example.app;
 import java.util.Optional;
 import java.util.Scanner;
 
+import org.example.app.db.Db;
+import org.example.app.entities.Buss;
 import org.example.app.entities.Ticket;
 import org.example.app.services.AuthService;
 import org.example.app.services.UserService;
-import org.example.app.utility.Station;
 
 public class App {
     public static void main(String[] args) {
+
+        Db.addBuss(new Buss());
         System.out.println("Welcome to Book-It");
         System.out.println("------------------------------");
         Scanner scanner = new Scanner(System.in);
         
         Integer option = 0;
-        while(option != 7) {
+        while(option != 6) {
             System.out.println("1. Sign up"); //done
             System.out.println("2. Login");  //done
             System.out.println("3. Fetch Bookings"); //done
             System.out.println("4. Book a Seat");
-            System.out.println("5. Search Trains");
-            System.out.println("6. Cancel my Booking");
-            System.out.println("7. Exit the App");
+            System.out.println("5. Cancel my Booking");
+            System.out.println("6. Exit the App");
             option = scanner.nextInt();
             
             switch (option) {
@@ -63,7 +65,7 @@ public class App {
                     String destination = scanner.next();
                     System.out.print("Select Date: ");
                     String date = scanner.next();
-                    
+
                     break;
                 }
                 }
