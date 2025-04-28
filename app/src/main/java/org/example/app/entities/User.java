@@ -7,7 +7,6 @@ public class User {
     private String name;
     private String email;
     private String password;
-
     private Ticket ticket;
 
     public User(String name, String email, String password) {

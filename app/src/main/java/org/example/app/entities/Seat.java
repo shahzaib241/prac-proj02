@@ -6,17 +6,34 @@ public class Seat {
     private UUID id;
     private Boolean booked;
     private Integer seatNo;
-    private User user;
-    private Integer price;
 
-    public Seat(Integer seatNo, Integer price) {
+    public Seat(Integer seatNo) {
         this.id = UUID.randomUUID();
         this.booked = false;
         this.seatNo = seatNo;
-        this.price = price;
     }
 
-    public void setUser (User user) {
-        this.user = user;
+    public Integer getSeatNo() {
+        return this.seatNo;
+    }
+
+    public Boolean getBooked() {
+        return this.booked;
+    }
+
+    public void setBooked() throws Exception {
+        if (this.booked == true) {
+            throw new Exception("Seat is already booked");
+        } else {
+            this.booked = true;
+        }
+    }
+
+    public void setUnBooked() throws Exception {
+        if (this.booked == false) {
+            throw new Exception("Seat is already un-booked");
+        } else {
+            this.booked = false;
+        }
     }
 }
